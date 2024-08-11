@@ -4,6 +4,7 @@ import { STATE_ERROR_LOG } from '@/enums/error.enum';
 import {
   InterfaceErrorsTable,
   InterfaceErrorUpdate,
+  InterfaceSerializedError,
 } from '@/interfaces/error.interface';
 import { InterfaceSerializedUser } from '@/interfaces/user.interface';
 import { errorDelete, errorUpdate } from '@/lib/actions/error.actions';
@@ -45,7 +46,7 @@ const ErrorsTable: FC<InterfaceErrorsTable> = ({ records }) => {
   }, [filterText]);
 
   const filteredRecords = records.filter(
-    (item) =>
+    (item: InterfaceSerializedError) =>
       (item.name &&
         item.name.toLowerCase().includes(filterText.toLowerCase())) ||
       (item.user?.name && item.user.name.includes(filterText.toLowerCase()))

@@ -11,6 +11,7 @@ export interface InterfaceContextUser {
     image?: string;
     onboarded?: boolean;
   };
+  roles: InterfaceSerializedRole[];
   btnLabel: string;
 }
 

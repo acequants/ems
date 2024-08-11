@@ -67,8 +67,3 @@ const FormRoleCreate: FC = () => {
 };
 
 export default FormRoleCreate;
-
-// TODO:
-
-// - Close modal on successful create
-// - Improve the currently logged in user display

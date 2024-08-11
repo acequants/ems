@@ -8,18 +8,19 @@ import { FC, FormEvent, useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { handleFile, isWhiteSpaces } from '@/lib/utils';
 import { userUpsert } from '@/lib/actions/user.actions';
-import { roleFetchMany } from '@/lib/actions/role.actions';
 import { InterfaceSerializedRole } from '@/interfaces/role.interface';
-import { serializeRole } from '@/lib/serializations/role.serialize';
 
 import Image from 'next/image';
 import validateUserProfile from '@/lib/validations/user.validation';
 
-const FormUserProfile: FC<InterfaceContextUser> = ({ user, btnLabel }) => {
+const FormUserProfile: FC<InterfaceContextUser> = ({
+  user,
+  roles,
+  btnLabel,
+}) => {
   const router = useRouter();
   const path = usePathname();
 
-  const [roles, setRoles] = useState<InterfaceSerializedRole[]>([]);
   const [tempImage, setTempImage] = useState<string>(user.image || '');
   const [input, setInput] = useState<InterfaceUserCreate>({
     id: user.id,
@@ -61,18 +62,6 @@ const FormUserProfile: FC<InterfaceContextUser> = ({ user, btnLabel }) => {
     }
   };
 
-  useEffect(() => {
-    roleFetchMany({}).then((data) => {
-      if (data) {
-        const records: InterfaceSerializedRole[] = [];
-
-        for (let i = 0; i < data.records?.length; i++) {
-          records.push(serializeRole(data.records[i]));
-        }
-        setRoles(records);
-      }
-    });
-  }, []);
   useEffect(() => {
     setInput({ ...input, image: tempImage });
   }, [tempImage]);

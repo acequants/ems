@@ -1,9 +1,11 @@
 import { errorFetchMany } from '@/lib/actions/error.actions';
-import { userFetchOne } from '@/lib/actions/user.actions';
+import { userFetchAll, userFetchOne } from '@/lib/actions/user.actions';
 import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import { serializeError } from '@/lib/serializations/error.serialize';
 import { InterfaceSerializedError } from '@/interfaces/error.interface';
+import { InterfaceSerializedUser } from '@/interfaces/user.interface';
+import { serializeUser } from '@/lib/serializations/user.serialize';
 
 import FormErrorLog from '@/components/forms/FormErrorLog';
 import ErrorsTable from '@/components/tables/ErrorsTable';
@@ -24,6 +26,13 @@ async function Page() {
     for (let i = 0; i < _error.records?.length; i++) {
       records.push(serializeError(_error.records[i]));
     }
+  }
+
+  const _users = await userFetchAll({});
+  const users: InterfaceSerializedUser[] = [];
+
+  for (let i = 0; i < _users?.length; i++) {
+    users.push(serializeUser(_users[i]));
   }
 
   return (
@@ -72,7 +81,7 @@ async function Page() {
                   ></button>
                 </div>
                 <div className='modal-body'>
-                  <FormErrorLog />
+                  <FormErrorLog users={users} />
                 </div>
               </div>
             </div>

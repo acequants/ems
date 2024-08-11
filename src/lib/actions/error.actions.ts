@@ -55,8 +55,16 @@ export async function errorUpdate(input: InterfaceErrorUpdate): Promise<void> {
     ) {
       updateFields['state'] = state;
     }
-
     if (_userId) {
+      const currentError = await Error.findById(_id).populate({
+        path: 'user',
+        model: User,
+      });
+
+      await User.findByIdAndUpdate(currentError.user?._id, {
+        $pull: { errors: _id },
+      });
+
       const updatedUser = await User.findByIdAndUpdate(_userId, {
         $push: { errors: _id },
       });

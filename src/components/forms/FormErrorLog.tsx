@@ -3,18 +3,18 @@
 import { FC, FormEvent, useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { isWhiteSpaces } from '@/lib/utils';
-import { userFetchAll } from '@/lib/actions/user.actions';
-import { InterfaceErrorLog } from '@/interfaces/error.interface';
+import {
+  FormErrorLogProps,
+  InterfaceErrorLog,
+} from '@/interfaces/error.interface';
 import { errorLog } from '@/lib/actions/error.actions';
 import { InterfaceSerializedUser } from '@/interfaces/user.interface';
-import { serializeUser } from '@/lib/serializations/user.serialize';
 
 import validateErrorLog from '@/lib/validations/error.validation';
 
-const FormErrorLog: FC = () => {
+const FormErrorLog: FC<FormErrorLogProps> = ({ users }) => {
   const path = usePathname();
 
-  const [users, setUsers] = useState<InterfaceSerializedUser[]>([]);
   const [input, setInput] = useState<InterfaceErrorLog>({
     name: undefined,
     description: undefined,
@@ -46,18 +46,6 @@ const FormErrorLog: FC = () => {
     }
   };
 
-  useEffect(() => {
-    userFetchAll({}).then((data) => {
-      if (data) {
-        const records: InterfaceSerializedUser[] = [];
-
-        for (let i = 0; i < data.length; i++) {
-          records.push(serializeUser(data[i]));
-        }
-        setUsers(records);
-      }
-    });
-  }, []);
   useEffect(() => {
     setErrors(validateErrorLog('name', input.name));
   }, [input.name]);

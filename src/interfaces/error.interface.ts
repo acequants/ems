@@ -35,3 +35,7 @@ export interface InterfaceErrorUpdate {
   _userId?: string;
   state?: TypeErrorLogState;
 }
+
+export interface FormErrorLogProps {
+  users: InterfaceSerializedUser[];
+}
