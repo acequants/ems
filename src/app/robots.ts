@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/onboarding', '/errors/', '/roles/', '/users/'],
       },
     ],
-    sitemap: 'https://CHANGE/sitemap.xml',
+    sitemap: 'https://ems-inky.vercel.app/sitemap.xml',
   };
 }
