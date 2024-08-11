@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Welcome to [Error Management System (EMS)](https://nextjs.org/) developed by
+Johnmark. This project is build on NextJs, Mongo DB and Typescript. Below are
+simple instructions to get you setup and running.
 
 ## Getting Started
 
-First, run the development server:
+First, download/clone this repository to your system. Navigate to the root
+folder of the project then:
+
+### Setup Environment Variables
+
+Create a .env.local file at the root of the project folder with the following
+compulsory keys. Read more about Clerk user management API here
+[https://clerk.com](https://clerk.com). For the values of the keys below, use
+your own:
+
+```bash
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="--- Your Clerk Public Key ---"
+CLERK_SECRET_KEY="--- Your Clerk Secret Key ---"
+MONGO_DB_URL="--- Your Mongo Database Connection String ---"
+
+```
+
+For the rest of the evironment variables below, use the values provided below as
+is:
+
+```bash
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/onboarding
+
+```
+
+#### I wish you all the best!
+
+On the terminal, run the following steps:
+
+### Step 1
+
+Install npm packages by running:
+
+```bash
+npm install
+
+```
+
+### Step 2
+
+To start the development server, run:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Step 3
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To generate a production build, run:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run build
 
-## Learn More
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Step 4
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To start the production build, run:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm run start
 
-## Deploy on Vercel
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The development and production builds will be served at
+[http://localhost:3000](http://localhost:3000). Open the link with your
+favourite browser to access the application.
