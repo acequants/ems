@@ -61,7 +61,7 @@ const ErrorsTable: FC<InterfaceErrorsTable> = ({ records }) => {
       name: 'ERROR NAME',
       sortable: true,
       wrap: true,
-      grow: 2,
+      width: '250px',
       selector: (row: any) => row.name,
       cell: (row: any) => row.name,
     },
@@ -69,7 +69,7 @@ const ErrorsTable: FC<InterfaceErrorsTable> = ({ records }) => {
       name: 'ASSIGNED TO',
       sortable: true,
       wrap: true,
-      grow: 2,
+      width: '250px',
       selector: (row: any) => row.user?.name,
       cell: (row: any) => (
         <>

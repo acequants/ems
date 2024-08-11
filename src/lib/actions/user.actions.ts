@@ -28,7 +28,7 @@ export async function userUpsert({
     await User.findOneAndUpdate(
       { id },
       {
-        name: name?.toLowerCase(),
+        name,
         role,
         email,
         image,

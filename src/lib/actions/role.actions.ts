@@ -20,7 +20,7 @@ export async function roleCreate({
   try {
     connectToDb();
 
-    await Role.create({ name: name?.toLowerCase() });
+    await Role.create({ name });
 
     if (path) {
       revalidatePath(path);
@@ -40,10 +40,7 @@ export async function roleUpdate({
   try {
     connectToDb();
 
-    const updatedRole = await Role.findOneAndUpdate(
-      { _id },
-      { name: name?.toLowerCase() }
-    );
+    const updatedRole = await Role.findOneAndUpdate({ _id }, { name });
 
     if (!updatedRole) {
       throw new Error('Role not found');
