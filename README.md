@@ -1,6 +1,6 @@
-Welcome to [Error Management System (EMS)](https://nextjs.org/) developed by
-Johnmark. This project is build on NextJs, Mongo DB and Typescript. Below are
-simple instructions to get you setup and running.
+Welcome to [Error Management System (EMS)](https://ems-inky.vercel.app)
+developed by Johnmark. This project is build on NextJs, Mongo DB and Typescript.
+Below are simple instructions to get you setup and running.
 
 ## Getting Started
 
@@ -31,8 +31,6 @@ NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
 NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/onboarding
 
 ```
-
-#### I wish you all the best!
 
 On the terminal, run the following steps:
 
@@ -75,3 +73,5 @@ npm run start
 The development and production builds will be served at
 [http://localhost:3000](http://localhost:3000). Open the link with your
 favourite browser to access the application.
+
+#### I wish you all the best!

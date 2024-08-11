@@ -57,7 +57,7 @@ export async function errorUpdate(input: InterfaceErrorUpdate): Promise<void> {
     }
 
     if (_userId) {
-      // TODO: Remove error from assigned user.
+      // TODO: Remove error from previously assigned user.
 
       const updatedUser = await User.findByIdAndUpdate(_userId, {
         $push: { errors: _id },
