@@ -29,6 +29,7 @@ const FormRoleUpdate: FC<InterfaceRoleUpdateForm> = ({ input, setInput }) => {
 
     if (Object.keys(_errors).length === 0) {
       roleUpdate(input);
+      document?.getElementById('modal-update-role')?.click();
     }
   };
 

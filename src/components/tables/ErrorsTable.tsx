@@ -53,6 +53,7 @@ const ErrorsTable: FC<InterfaceErrorsTable> = ({ records }) => {
   );
   const handleUpdate = () => {
     errorUpdate(input);
+    document?.getElementById('modal-update-error-state')?.click();
   };
   const handleDelete = (_id: string) => {
     errorDelete(_id, path);

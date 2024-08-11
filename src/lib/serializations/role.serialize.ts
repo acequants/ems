@@ -9,7 +9,7 @@ export const serializeRole = (record: any): InterfaceSerializedRole => {
     users.push(serializeUser(record.users[i]));
   }
   return {
-    _id: JSON.stringify(record._id),
+    _id: record._id,
     name: record.name,
     createdAt: record.createdAt,
     users,

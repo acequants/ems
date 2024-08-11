@@ -16,7 +16,7 @@ export const serializeUser = (record: any): InterfaceSerializedUser => {
     errors.push(serializeError(record.errors[i]));
   }
   return {
-    _id: JSON.stringify(record._id),
+    _id: record._id,
     id: record.id,
     email: record.email,
     image: record.image,

@@ -36,6 +36,7 @@ const FormRoleCreate: FC = () => {
 
     if (Object.keys(_errors).length === 0) {
       roleCreate(input);
+      document?.getElementById('modal-new-role')?.click();
     }
   };
 

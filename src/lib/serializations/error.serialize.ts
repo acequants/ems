@@ -9,7 +9,7 @@ export const serializeError = (record: any): InterfaceSerializedError => {
     user = serializeUser(record.user);
   }
   return {
-    _id: JSON.stringify(record._id),
+    _id: record._id,
     name: record.name,
     description: record.description,
     state: record.state,

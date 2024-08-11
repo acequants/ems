@@ -43,6 +43,7 @@ const FormErrorLog: FC<FormErrorLogProps> = ({ users }) => {
 
     if (Object.keys(_errors).length === 0) {
       errorLog(input);
+      document?.getElementById('modal-log-error')?.click();
     }
   };
 
