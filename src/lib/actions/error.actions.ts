@@ -105,11 +105,11 @@ export async function errorFetchMany({}: InterfaceErrorFetchMany): Promise<Inter
   }
 }
 
-export async function errorDelete(id: string, path: string): Promise<void> {
+export async function errorDelete(_id: string, path: string): Promise<void> {
   try {
     connectToDb();
 
-    const deletedError = await Error.findOneAndDelete({ id });
+    const deletedError = await Error.findOneAndDelete({ _id });
 
     if (!deletedError) {
       throw new Error('Error log not found');
