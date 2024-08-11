@@ -33,10 +33,8 @@ folder of the project then:
 
 ### Setup Environment Variables
 
-Create a .env.local file at the root of the project folder with the following
-keys.
-
-Clerk is used to manage user authentication, more about it here
+Create a .env.local file at the root of the project folder. Clerk is used to
+manage user authentication, more about it here
 [https://clerk.com](https://clerk.com). Sign-up at clerk to acquire API keys
 before filling in the values below.
 
