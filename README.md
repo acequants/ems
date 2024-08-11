@@ -1,5 +1,7 @@
 Welcome to [Error Management System (EMS)](https://ems-inky.vercel.app) software
-built in NextJs, Mongo DB and Typescript to track system errors.
+built in NextJs, Mongo DB and Typescript to track system errors. Browse the live
+deployment of the application here
+[https://ems-inky.vercel.app/](https://ems-inky.vercel.app)
 
 ## Feature Overview
 
