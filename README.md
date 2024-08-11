@@ -1,6 +1,28 @@
-Welcome to [Error Management System (EMS)](https://ems-inky.vercel.app)
-developed by Johnmark. This project is build on NextJs, Mongo DB and Typescript.
-Below are simple instructions to get you setup and running.
+Welcome to [Error Management System (EMS)](https://ems-inky.vercel.app) software
+built in NextJs, Mongo DB and Typescript to track system errors.
+
+## Feature Overview
+
+It works by allowing software users to log errors encountered and allocate them
+to different engineers for resolution.
+
+Engineers are categorised by role from junior engineer to tech lead. Errors are
+assigned to users basing on complexity level and work load of the engineer.
+
+Errors logged are labelled by two states as follows:
+
+- Pending. This is the default state of an error. It means the error has not
+  been resolved yet.
+- Resolved. This is an error that has been addressed to a satisfactory
+  conclusion.
+
+Both the users and roles are dynamic and more can be created and deleted at
+will. Users self sign up then proceed to complete their profile at the
+onboarding stage after which they are redirected to the home page.
+
+A user can have one role at a time and a role can be assumed by multiple users.
+An error can be assigned to one user at a go and a user can be assigned many
+errors to resolve.
 
 ## Getting Started
 
@@ -10,19 +32,28 @@ folder of the project then:
 ### Setup Environment Variables
 
 Create a .env.local file at the root of the project folder with the following
-compulsory keys. Read more about Clerk user management API here
-[https://clerk.com](https://clerk.com). For the values of the keys below, use
-your own:
+keys.
+
+Clerk is used to manage user authentication, more about it here
+[https://clerk.com](https://clerk.com). Sign-up at clerk to acquire API keys
+before filling in the values below.
 
 ```bash
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="--- Your Clerk Public Key ---"
-CLERK_SECRET_KEY="--- Your Clerk Secret Key ---"
-MONGO_DB_URL="--- Your Mongo Database Connection String ---"
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=Your_Clerk_Public_Key
+CLERK_SECRET_KEY=Your_Clerk_Secret_Key
 
 ```
 
-For the rest of the evironment variables below, use the values provided below as
-is:
+You will also need to signup at
+[https://www.mongodb.com/](https://www.mongodb.com/) to host the mongo database
+and get the connection string to be filled in below
+
+```bash
+MONGO_DB_URL=Your_Mongo_Database_Connection_String
+
+```
+
+For the rest of the evironment variables, use the values provided below as is:
 
 ```bash
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
@@ -32,11 +63,13 @@ NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/onboarding
 
 ```
 
-On the terminal, run the following steps:
+Open a terminal at the root folder of the project where package.json and
+package-lock.json files are located to execute the commands outlined in the
+steps below:
 
 ### Step 1
 
-Install npm packages by running:
+Install project dependencies using npm package manager by executing:
 
 ```bash
 npm install
@@ -45,33 +78,30 @@ npm install
 
 ### Step 2
 
-To start the development server, run:
+To start the application in development mode, execute:
 
 ```bash
 npm run dev
 
 ```
 
-### Step 3
-
-To generate a production build, run:
+To generate a production build, execute:
 
 ```bash
 npm run build
 
 ```
 
-### Step 4
-
-To start the production build, run:
+To start the application in production mode, execute the command below after
+generating a production build using the previous command above:
 
 ```bash
 npm run start
 
 ```
 
-The development and production builds will be served at
-[http://localhost:3000](http://localhost:3000). Open the link with your
-favourite browser to access the application.
+Both the development and production applications will be served at
+[http://localhost:3000](http://localhost:3000). Open the link in your favourite
+browser to access the application's graphical user interface.
 
-#### I wish you all the best!
+#### Enjoy the EMS by Johnmark!
